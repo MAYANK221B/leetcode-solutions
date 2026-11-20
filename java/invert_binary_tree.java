@@ -3,7 +3,7 @@
 // Language: java
 // Link: https://leetcode.com/problems/invert-binary-tree/
 // Synced by: LinkCode
-// Date: 11/20/2026, 2:51:46 PM
+// Date: 11/20/2026, 3:24:54 PM
 // ======================================
 
 
@@ -31,11 +31,10 @@ class Solution {
         if(node == null)
             return null;
 
-        invert(node.left);
-        invert(node.right);
-        TreeNode temp = node.left;
-        node.left = node.right;
-        node.right = temp;
+        TreeNode left = invert(node.left);
+        TreeNode right = invert(node.right);
+        node.left=right;
+        node.right=left;
 
         return node;
 
