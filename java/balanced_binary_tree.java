@@ -3,7 +3,7 @@
 // Language: java
 // Link: https://leetcode.com/problems/balanced-binary-tree/
 // Synced by: LinkCode
-// Date: 11/26/2026, 2:22:58 AM
+// Date: 11/26/2026, 2:34:09 AM
 // ======================================
 
 
@@ -23,26 +23,21 @@
  * }
  */
 class Solution {
+    boolean result = true;
     public boolean isBalanced(TreeNode root) {
-        if(root==null)
-            return true;
-
-        int res = findHeight(root);
-        if(res==-1||res==0)
-            return false;
-        else
-            return true;
+        int a = height(root);
+        return result;
     }
 
-    private int findHeight(TreeNode node){
-        if(node==null)
+    private int height(TreeNode node){
+        if(node == null)
             return 0;
-        int dl= findHeight(node.left) +1;
-        int dr = findHeight(node.right) + 1;
-        if(dl==0||dr==0)
-            return -1;
-        if(Math.abs(dl-dr)>1)
-            return -1;
-        return Math.max(dl,dr);
+        int left = height(node.left);
+        int right = height(node.right);
+        if(Math.abs(left-right)>1)
+            result = false;
+        return Math.max(left, right)+1;
+
+        
     }
 }
