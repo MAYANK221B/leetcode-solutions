@@ -3,7 +3,7 @@
 // Language: java
 // Link: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 // Synced by: LinkCode
-// Date: 11/19/2026, 7:08:56 PM
+// Date: 11/26/2026, 1:38:25 AM
 // ======================================
 
 
@@ -24,8 +24,9 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        //return depth(root, 0);
-        return root==null ? 0: Math.max(maxDepth(root.left), maxDepth(root.right))+1 ;
+        if(root == null)
+            return 0;
+        else return Math.max(maxDepth(root.left), maxDepth(root.right)) +1;
     }
 
     // public int depth(TreeNode root, int count){
